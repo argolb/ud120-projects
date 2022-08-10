@@ -30,14 +30,19 @@ features_train, features_test, labels_train, labels_test = preprocess()
 # Create classifer
 clf = GaussianNB()
 
+t0 = time()
 # Fit classifer on training data
 clf.fit(features_train, labels_train)
+print("Training Time:", round(time()-t0, 3), "s")
 
+t1 = time()
 # Use train classifer to predict lables
 pred = clf.predict(features_test)
+print("Predicting Time:", round(time()-t1, 3), "s")
 
 # Print the accuracy
 accuracy = accuracy_score(labels_test, pred)
+print(accuracy)
 
 ##############################################################
 
@@ -47,13 +52,5 @@ You Will be Required to record time for Training and Predicting
 The Code Given on Udacity Website is in Python-2
 The Following Code is Python-3 version of the same code
 '''
-
-# t0 = time()
-# # < your clf.fit() line of code >
-# print("Training Time:", round(time()-t0, 3), "s")
-
-# t0 = time()
-# # < your clf.predict() line of code >
-# print("Predicting Time:", round(time()-t0, 3), "s")
 
 ##############################################################
